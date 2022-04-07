@@ -18,7 +18,7 @@ namespace SpecFlow.Actions.Selenium
             runtimePluginEvents.CustomizeScenarioDependencies += RuntimePluginEvents_CustomizeScenarioDependencies;
         }
 
-        private void RuntimePluginEvents_CustomizeScenarioDependencies(object sender, CustomizeScenarioDependenciesEventArgs e)
+        private void RuntimePluginEvents_CustomizeScenarioDependencies(object? sender, CustomizeScenarioDependenciesEventArgs e)
         {
             if (!e.ObjectContainer.IsRegistered<ISeleniumConfiguration>())
             {

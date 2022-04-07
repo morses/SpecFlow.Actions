@@ -1,11 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp2.1;net471</TargetFrameworks>
+    <TargetFrameworks>netcoreapp2.1;net471;net6.0</TargetFrameworks>
     <AssemblyName>SpecFlow.Actions.Selenium.SpecFlowPlugin</AssemblyName>
-    <PackageId>SpecFlow.Actions.Selenium</PackageId>
-    <Product>SpecFlow.Actions.Selenium</Product>
+    <PackageId>SpecFlow.Actions.Selenium.CS462</PackageId>
+    <Product>SpecFlow.Actions.Selenium.CS462</Product>
     <NuspecFile>$(MSBuildThisFileDirectory)SpecFlow.Actions.Selenium.nuspec</NuspecFile>
+	<Description>Custom version of this package that adds ability to read, write and delete cookies.</Description>
   </PropertyGroup>
 
   <ItemGroup>

@@ -3,6 +3,7 @@ using OpenQA.Selenium.Support.UI;
 using SpecFlow.Actions.Selenium.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace SpecFlow.Actions.Selenium
 {
@@ -13,6 +14,11 @@ namespace SpecFlow.Actions.Selenium
         void GoToUrl(string url);
         string GetUrl();
         T? WaitUntil<T>(Func<T> getResult, Func<T, bool> isResultAccepted) where T : class;
+
+        ReadOnlyCollection<Cookie> GetCookies();
+        void AddCookie(Cookie cookie);
+        void DeleteAllCookies();
+        void RefreshPage();
     }
 
     public class BrowserInteractions : IBrowserInteractions
@@ -82,6 +88,26 @@ namespace SpecFlow.Actions.Selenium
             }
 
             return _webDriverWait.Value.Until(Condition);
+        }
+
+        public ReadOnlyCollection<Cookie> GetCookies()
+        {
+            return _browserDriver.Current.Manage().Cookies.AllCookies;
+        }
+
+        public void AddCookie(Cookie cookie)
+        {
+            _browserDriver.Current.Manage().Cookies.AddCookie(cookie);
+        }
+
+        public void DeleteAllCookies()
+        {
+            _browserDriver.Current.Manage().Cookies.DeleteAllCookies();
+        }
+
+        public void RefreshPage()
+        {
+            _browserDriver.Current.Navigate().Refresh();
         }
 
         private WebDriverWait GetWaitDriver()
